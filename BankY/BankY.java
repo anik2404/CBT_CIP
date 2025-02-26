@@ -50,7 +50,7 @@ public class BankY {
     }
     
     private static void displayMenu() {
-        System.out.println("\n==== BankY Menu ====");
+        System.out.println("\n==== BankY ====");
         System.out.println("1. Create New Account");
         System.out.println("2. Deposit");
         System.out.println("3. Withdraw");
@@ -87,7 +87,7 @@ public class BankY {
             Account account = bank.createAccount(name, initialDeposit);
             System.out.println("Account created successfully!");
             System.out.println("Account Number: " + account.getAccountNumber());
-            System.out.println("Current Balance: $" + account.getBalance());
+            System.out.println("Current Balance: Rs. " + account.getBalance());
         } catch (NumberFormatException e) {
             System.out.println("Invalid amount. Please enter a valid number.");
         }
@@ -115,7 +115,7 @@ public class BankY {
             
             account.deposit(amount);
             System.out.println("Deposit successful!");
-            System.out.println("Current Balance: $" + account.getBalance());
+            System.out.println("Current Balance: Rs. " + account.getBalance());
             bank.saveData();
         } catch (NumberFormatException e) {
             System.out.println("Invalid amount. Please enter a valid number.");
@@ -145,14 +145,14 @@ public class BankY {
             boolean success = account.withdraw(amount);
             if (success) {
                 System.out.println("Withdrawal successful!");
-                System.out.println("Current Balance: $" + account.getBalance());
+                System.out.println("Current Balance: Rs. " + account.getBalance());
                 bank.saveData();
             } else {
                 System.out.println("Insufficient funds. Withdrawal failed.");
-                System.out.println("Current Balance: $" + account.getBalance());
+                System.out.println("Current Balance: Rs. " + account.getBalance());
             }
         } catch (NumberFormatException e) {
-            System.out.println("Invalid amount. Please enter a valid number.");
+            System.out.println("Invalid amount. Please enter a valid amount.");
         }
     }
     
@@ -193,11 +193,11 @@ public class BankY {
             boolean success = bank.transfer(sourceAccount, destAccount, amount);
             if (success) {
                 System.out.println("Transfer successful!");
-                System.out.println("Source Account Balance: $" + sourceAccount.getBalance());
-                System.out.println("Destination Account Balance: $" + destAccount.getBalance());
+                System.out.println("Source Account Balance: Rs. " + sourceAccount.getBalance());
+                System.out.println("Destination Account Balance: Rs. " + destAccount.getBalance());
             } else {
                 System.out.println("Insufficient funds. Transfer failed.");
-                System.out.println("Source Account Balance: $" + sourceAccount.getBalance());
+                System.out.println("Source Account Balance: Rs. " + sourceAccount.getBalance());
             }
         } catch (NumberFormatException e) {
             System.out.println("Invalid amount. Please enter a valid number.");
